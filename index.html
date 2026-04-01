@@ -522,8 +522,105 @@
       line-height: 1.7;
     }
 
+    /* ---- AREAS SERVED ---- */
+    .areas-served {
+      background: var(--white);
+    }
+
+    .areas-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      margin-top: 48px;
+      align-items: start;
+    }
+
+    .areas-map {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--grey-light);
+      aspect-ratio: 4/3;
+      position: sticky;
+      top: 96px;
+    }
+
+    .areas-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .areas-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .area-region h3 {
+      font-size: 14px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--grey-text);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--grey-light);
+    }
+
+    .area-cities {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+    }
+
+    .area-city {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15.5px;
+      font-weight: 500;
+      color: var(--charcoal);
+      padding: 6px 0;
+    }
+
+    .area-city::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--yellow);
+      flex-shrink: 0;
+    }
+
+    .areas-note {
+      margin-top: 24px;
+      padding: 20px 24px;
+      background: var(--yellow-light);
+      border-radius: 10px;
+      font-size: 14px;
+      color: var(--charcoal-soft);
+      line-height: 1.7;
+    }
+
+    .areas-note strong {
+      color: var(--charcoal);
+    }
+
+    @media (max-width: 900px) {
+      .areas-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .areas-map {
+        position: static;
+        aspect-ratio: 16/10;
+      }
+    }
+
     /* ---- FAQ ---- */
-    .faq { background: var(--white); }
+    .faq { background: var(--off-white); }
 
     .faq-list {
       max-width: 760px;
@@ -889,6 +986,7 @@
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#services">Services</a></li>
+        <li><a href="#areas">Areas</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#facts">Quick Facts</a></li>
         <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
@@ -980,6 +1078,115 @@
           <p>Keep your wedding day moving smoothly with dedicated guest shuttles between ceremony, reception, and hotels. Also available for milestone birthdays, reunions, and private events. We'll work around your timeline so no one's left figuring out parking or directions.</p>
         </article>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas Served -->
+  <section class="areas-served" id="areas">
+    <div class="container">
+      <span class="section-label reveal">Areas Served</span>
+      <h2 class="reveal reveal-delay-1">The entire GTA<br>&amp; beyond</h2>
+      <div class="areas-layout">
+
+        <div class="areas-map reveal reveal-delay-2">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d369610.0!2d-79.38!3d43.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca!4v1700000000000"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="EZ Buses service area map — Greater Toronto Area"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="areas-list reveal reveal-delay-3">
+
+          <div class="area-region">
+            <h3>Toronto</h3>
+            <div class="area-cities">
+              <span class="area-city">Downtown Toronto</span>
+              <span class="area-city">North York</span>
+              <span class="area-city">Scarborough</span>
+              <span class="area-city">Etobicoke</span>
+              <span class="area-city">East York</span>
+              <span class="area-city">York</span>
+            </div>
+          </div>
+
+          <div class="area-region">
+            <h3>Durham Region</h3>
+            <div class="area-cities">
+              <span class="area-city">Pickering</span>
+              <span class="area-city">Ajax</span>
+              <span class="area-city">Whitby</span>
+              <span class="area-city">Oshawa</span>
+              <span class="area-city">Clarington</span>
+              <span class="area-city">Uxbridge</span>
+              <span class="area-city">Brock</span>
+              <span class="area-city">Scugog</span>
+            </div>
+          </div>
+
+          <div class="area-region">
+            <h3>York Region</h3>
+            <div class="area-cities">
+              <span class="area-city">Markham</span>
+              <span class="area-city">Richmond Hill</span>
+              <span class="area-city">Vaughan</span>
+              <span class="area-city">Newmarket</span>
+              <span class="area-city">Aurora</span>
+              <span class="area-city">Stouffville</span>
+              <span class="area-city">King City</span>
+              <span class="area-city">Georgina</span>
+              <span class="area-city">East Gwillimbury</span>
+            </div>
+          </div>
+
+          <div class="area-region">
+            <h3>Peel Region</h3>
+            <div class="area-cities">
+              <span class="area-city">Mississauga</span>
+              <span class="area-city">Brampton</span>
+              <span class="area-city">Caledon</span>
+            </div>
+          </div>
+
+          <div class="area-region">
+            <h3>Halton Region</h3>
+            <div class="area-cities">
+              <span class="area-city">Oakville</span>
+              <span class="area-city">Burlington</span>
+              <span class="area-city">Milton</span>
+              <span class="area-city">Halton Hills</span>
+              <span class="area-city">Georgetown</span>
+            </div>
+          </div>
+
+          <div class="area-region">
+            <h3>Hamilton &amp; Niagara</h3>
+            <div class="area-cities">
+              <span class="area-city">Hamilton</span>
+              <span class="area-city">St. Catharines</span>
+              <span class="area-city">Niagara Falls</span>
+              <span class="area-city">Welland</span>
+            </div>
+          </div>
+
+          <div class="area-region">
+            <h3>Simcoe County</h3>
+            <div class="area-cities">
+              <span class="area-city">Barrie</span>
+              <span class="area-city">Orillia</span>
+              <span class="area-city">Innisfil</span>
+              <span class="area-city">Bradford</span>
+            </div>
+          </div>
+
+          <div class="areas-note">
+            <strong>Don't see your city?</strong> We serve all of Ontario and regularly run cross-border trips to New York, Michigan, Ohio, and Pennsylvania. <a href="#quote" style="color: var(--charcoal); text-decoration: underline;">Request a quote</a> for any destination.
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
