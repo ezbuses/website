@@ -81,6 +81,72 @@ npx serve .
 
 Then open [http://localhost:3000](http://localhost:3000).
 
+## Fork & Edit with Claude Code
+
+Anyone can clone this repo and use [Claude Code](https://claude.ai/code) to make changes with AI assistance — no coding experience required.
+
+### 1. Clone the repo
+
+```bash
+git clone git@github.com:TechnoDudeX/ezbuses.git
+cd ezbuses
+```
+
+Or fork it on GitHub first if you want your own copy to deploy.
+
+### 2. Install Claude Code
+
+```bash
+npm install -g @anthropic/claude-code
+```
+
+Requires Node.js 18+. Sign in with your Anthropic account when prompted.
+
+### 3. Open Claude Code in the project
+
+```bash
+cd ezbuses
+claude
+```
+
+### 4. Make changes by asking Claude
+
+Claude Code reads the `CLAUDE.md` file in this repo automatically, so it already knows the project structure. Just describe what you want:
+
+```
+> Change the phone number to 416-555-0100
+> Add a new service card for "Airport Transfers"
+> Make the hero headline bigger on mobile
+> Add Hamilton and Burlington to the areas served list
+> Update the FAQ with a question about parking at pickup
+```
+
+Claude will read the relevant parts of `index.html`, make the edit, and show you a diff before writing anything.
+
+### 5. Preview your changes
+
+```bash
+python3 -m http.server 3000
+```
+
+Open [http://localhost:3000](http://localhost:3000) to see the result.
+
+### 6. Push to deploy
+
+```bash
+git add index.html
+git commit -m "describe your change"
+git push
+```
+
+If you connected the repo to Netlify, the live site updates automatically within ~30 seconds.
+
+### Tips
+
+- All content, styles, and logic live in a single `index.html` — Claude can find anything by searching that one file.
+- The `CLAUDE.md` file in the repo root documents all the common tasks, brand colors, fonts, and things to avoid — Claude reads this automatically.
+- You don't need to explain the project structure every time; Claude Code remembers context within a session.
+
 ## Contact
 
 - **Phone:** 416-438-7371
