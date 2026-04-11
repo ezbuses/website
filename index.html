@@ -856,6 +856,53 @@
       text-align: right;
     }
 
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 60px 40px;
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid var(--grey-light);
+    }
+
+    .form-success.visible {
+      display: block;
+    }
+
+    .form-success-icon {
+      width: 72px;
+      height: 72px;
+      background: #eafaf1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      color: #27ae60;
+    }
+
+    .form-success h3 {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .form-success p {
+      font-size: 16px;
+      color: var(--grey-text);
+      max-width: 460px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .form-success p a {
+      color: var(--charcoal);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid var(--yellow);
+    }
+
     .form-phone a {
       display: block;
       font-size: 20px;
@@ -1447,6 +1494,14 @@
             </div>
           </div>
         </form>
+
+        <div class="form-success" id="formSuccess" aria-live="polite">
+          <div class="form-success-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+          </div>
+          <h3>Thank You for Your Submission</h3>
+          <p>We've received your quote request and will be in touch with you shortly. If you need immediate assistance, please call us at <a href="tel:4164387371">416-438-7371</a>.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1497,6 +1552,17 @@
           btn.setAttribute('aria-expanded', 'true');
         }
       });
+    });
+
+    // Quote form — inline confirmation
+    const quoteForm = document.querySelector('form[name="quote"]');
+    const formSuccess = document.getElementById('formSuccess');
+    quoteForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(quoteForm);
+      await fetch('/', { method: 'POST', body: data });
+      quoteForm.style.display = 'none';
+      formSuccess.classList.add('visible');
     });
 
     // Scroll reveal
