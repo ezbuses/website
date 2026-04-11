@@ -1559,8 +1559,12 @@
     const formSuccess = document.getElementById('formSuccess');
     quoteForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const data = new FormData(quoteForm);
-      await fetch('/', { method: 'POST', body: data });
+      const body = new URLSearchParams(new FormData(quoteForm)).toString();
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body
+      });
       quoteForm.style.display = 'none';
       formSuccess.classList.add('visible');
     });
